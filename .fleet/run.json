@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "name": "OnePlus",
+            "type": "android-app",
+            "workingDir": "$PROJECT_DIR$",
+            "allowParallelRun": true,
+            "module": "GitHubKMPApp.composeApp.main",
+            "destination": "OnePlus IV2201"
+        }
+    ]
+}
