@@ -1,3 +1,5 @@
+package domain.model.repository
+
 import kotlinx.serialization.Serializable
 
 @Serializable

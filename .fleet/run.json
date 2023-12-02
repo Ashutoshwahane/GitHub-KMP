@@ -7,6 +7,17 @@
             "allowParallelRun": true,
             "module": "GitHubKMPApp.composeApp.main",
             "destination": "OnePlus IV2201"
+        },
+        {
+            "name": "Iphone XXX",
+            "type": "xcode-app",
+            "workingDir": "$PROJECT_DIR$",
+            "buildTarget": {
+                "project": "iosApp",
+                "target": "[Fleet] iosApp"
+            },
+            "configuration": "Debug",
+            "destination": "Iphone XXX"
         }
     ]
 }
