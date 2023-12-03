@@ -13,10 +13,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class GithubViewModel : ViewModel() {
+class GithubKMPViewModel : ViewModel() {
 
     private val _repositoryUiState =
-        MutableStateFlow(GithubRepositoryUiState(repository = emptyList(), profile = null))
+        MutableStateFlow(GithubKMPUiState(repository = emptyList(), profile = null))
     val repositoryUiState = _repositoryUiState.asStateFlow()
 
 
