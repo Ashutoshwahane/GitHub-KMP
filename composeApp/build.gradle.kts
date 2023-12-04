@@ -40,6 +40,7 @@ kotlin {
             implementation(libs.androidx.activity.compose)
 
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.androidx.core.splashscreen)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -106,6 +107,9 @@ android {
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
     }
+}
+dependencies {
+    implementation(libs.androidx.material3)
 }
 
 compose.desktop {

@@ -13,14 +13,17 @@ androidx-material = "1.10.0"
 androidx-constraintlayout = "2.1.4"
 androidx-test-junit = "1.1.5"
 androidx-espresso-core = "3.5.1"
+coreSplashscreen = "1.0.1"
 kotlin = "1.9.21"
 junit = "4.13.2"
 ktor = "2.3.6"
 moko-mvvm = "0.16.1"
 kamel = "0.9.0"
 kotlinx-coroutines = "1.7.3"
+material3 = "1.1.2"
 
 [libraries]
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -46,6 +49,7 @@ moko-mvvm-core = { module = "dev.icerock.moko:mvvm-core", version.ref = "moko-mv
 moko-mvvm-compose = { module = "dev.icerock.moko:mvvm-compose", version.ref = "moko-mvvm" }
 kamel = { module = "media.kamel:kamel-image", version.ref = "kamel" }
 kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 
 [plugins]
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
