@@ -1,5 +1,6 @@
-package presentation
+package presentation.feature.login
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -7,13 +8,13 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -30,13 +31,15 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import data.DataResource
+import domain.profile.ProfileModel
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
-import presentation.uicomponent.CustomTextH1
+import presentation.component.CustomTextH1
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun LoginScreen(onClick: (String) -> Unit) {
+fun loginScreen(profile: DataResource<ProfileModel>, onClick: (String) -> Unit) {
 
     var userName by remember { mutableStateOf("") }
     val focusManager = LocalFocusManager.current
@@ -84,6 +87,8 @@ fun LoginScreen(onClick: (String) -> Unit) {
             onClick = {
                 onClick.invoke(userName)
                 focusManager.clearFocus()
+                println("response : Button")
+
             },
             enabled = userName.isNotEmpty()
         ) {
@@ -91,6 +96,21 @@ fun LoginScreen(onClick: (String) -> Unit) {
                 text = "Continue", modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
+        }
+
+
+        AnimatedVisibility(profile.isError()){
+            CustomTextH1(
+                text = "Something went wrong!",
+                modifier = Modifier.fillMaxWidth(),
+                color = Color.Red,
+                fontFamily = FontFamily.Monospace,
+                fontSize = 32.sp
+            )
+        }
+
+        AnimatedVisibility(profile.isLoading()){
+            CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
         }
     }
 }

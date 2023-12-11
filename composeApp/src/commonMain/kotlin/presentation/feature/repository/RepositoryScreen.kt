@@ -1,8 +1,7 @@
-package presentation
+package presentation.feature.repository
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,14 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
+import data.DataResource
 import domain.model.repository.GithubRepositoryModelItem
-import presentation.uicomponent.CustomTextH2
-import presentation.uicomponent.CustomTextH3
-import presentation.uicomponent.CustomTextH4
-import presentation.uicomponent.CustomTextH5
+import presentation.component.CustomTextH3
+import presentation.component.CustomTextH4
 
 @Composable
-fun RepositoryScreen(repositoryModelItem: List<GithubRepositoryModelItem>){
+fun RepositoryScreen(repositoryModelItem: DataResource<List<GithubRepositoryModelItem>>){
     Column (
         modifier = Modifier
             .fillMaxWidth()
@@ -34,7 +32,7 @@ fun RepositoryScreen(repositoryModelItem: List<GithubRepositoryModelItem>){
     ){
         Box(modifier = Modifier.fillMaxWidth()) {
             LazyColumn {
-                items(repositoryModelItem) { repos ->
+                items(repositoryModelItem.data!!) { repos ->
                     RepositoryItem(repos)
                     Divider(color = Color.White, thickness = 1.dp)
                 }

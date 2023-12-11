@@ -41,6 +41,9 @@ kotlin {
 
             implementation(libs.ktor.client.okhttp)
             implementation(libs.androidx.core.splashscreen)
+
+            implementation(libs.koin.core)
+            implementation(libs.koin.android)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -58,12 +61,24 @@ kotlin {
             implementation(compose.material)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
+
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
+
             implementation(libs.moko.mvvm.core)
             implementation(libs.moko.mvvm.compose)
+
             implementation(libs.kamel)
+
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+
+            implementation(libs.voyager.navigator)
+            implementation(libs.voyager.screenModel)
+            implementation(libs.voyager.transitions)
+            implementation(libs.voyager.tabNavigator)
+            implementation(libs.voyager.koin)
 
         }
     }
